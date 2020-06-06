@@ -23,6 +23,10 @@ import home from "./pages/home";
 import Room from "./pages/Room";
 import admin from "./pages/admin";
 
+let axiosDefaults = require("axios/lib/defaults");
+axiosDefaults.baseURL =
+  "https://asia-northeast1-the-avartaz.cloudfunctions.net/api";
+
 const token = localStorage.FBIdToken;
 
 if (token) {
