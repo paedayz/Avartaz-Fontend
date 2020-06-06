@@ -72,7 +72,7 @@ class ProfileDialog extends Component {
             {bio ? (
               <div>
                 <p>
-                  <VisibilityIcon /> {bio}
+                  <b>Bio</b> {bio}
                 </p>
                 <p>
                   <b>website</b> {website}
@@ -126,8 +126,8 @@ const Image = styled.img`
 `;
 
 const ProfilePic = styled(CardMedia)`
-  min-width: 120px;
-  min-height: 120px;
+  min-width: 200px;
+  min-height: 200px;
   cursor: pointer;
 `;
 

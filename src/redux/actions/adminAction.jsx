@@ -4,6 +4,8 @@ import {
   LOADING_ADMIN_DATA,
   SET_HOSTS,
   SET_BAN_LIST,
+  SET_ADMIN_ERRORS,
+  SET_ROOMS,
 } from "../types";
 
 // Get all reports
@@ -56,9 +58,14 @@ export const deleteHost = (status) => (dispatch) => {
 };
 
 export const addRoom = (room) => (dispatch) => {
-  axios.post("/room", room).then(() => {
-    console.log("Add room complete");
-  });
+  axios
+    .post("/room", room)
+    .then(() => {
+      console.log("Add room complete");
+    })
+    .catch((err) => {
+      dispatch({ type: SET_ADMIN_ERRORS, payload: err.error });
+    });
 };
 
 export const banUser = (avatarName, banData) => (dispatch) => {
@@ -93,5 +100,16 @@ export const releaseBanUser = (avatarName) => (dispatch) => {
     })
     .catch((err) => {
       dispatch({ type: SET_BAN_LIST, payload: [] });
+    });
+};
+
+export const deleteRoom = (room) => (dispatch) => {
+  axios
+    .delete(`/room/delete/${room}`)
+    .then((res) => {
+      dispatch({ type: SET_ROOMS, payload: res.data });
+    })
+    .catch((err) => {
+      console.log(err);
     });
 };

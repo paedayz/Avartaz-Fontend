@@ -7,6 +7,7 @@ import {
   setHostStatus,
   deleteHost,
   addRoom,
+  deleteRoom,
 } from "../../redux/actions/adminAction";
 
 // MUI stuff
@@ -31,6 +32,7 @@ export class FunctionBtn extends Component {
     openSetHost: false,
     openDeleteHost: false,
     openAddRoom: false,
+    openDeleteRoom: false,
     avatarName: "",
     status: "",
     roomName: "",
@@ -86,6 +88,16 @@ export class FunctionBtn extends Component {
     });
   };
 
+  DeleteRoomOpen = () => {
+    this.setState({ openDeleteRoom: true });
+    this.handleFunctionBtnClose();
+  };
+
+  DeleteRoomSubmit = () => {
+    this.handleClickClose();
+    this.props.deleteRoom(this.state.roomName);
+  };
+
   handleClickClose = () => {
     this.setState({ openSetHost: false });
     this.setState({ status: "" });
@@ -94,6 +106,7 @@ export class FunctionBtn extends Component {
     this.setState({ description: "" });
     this.setState({ openDeleteHost: false });
     this.setState({ openAddRoom: "" });
+    this.setState({ openDeleteRoom: false });
   };
 
   render() {
@@ -119,6 +132,7 @@ export class FunctionBtn extends Component {
           <MenuItem onClick={this.SetHostOpen}>Set Host</MenuItem>
           <MenuItem onClick={this.DeleteHostOpen}>Delete Host</MenuItem>
           <MenuItem onClick={this.AddRoomOpen}>Add Room</MenuItem>
+          <MenuItem onClick={this.DeleteRoomOpen}>Delete Room</MenuItem>
         </Menu>
 
         {/* SET HOST */}
@@ -257,6 +271,45 @@ export class FunctionBtn extends Component {
             </Button>
           </DialogActions>
         </Dialog>
+
+        {/* DELETE ROOM */}
+
+        <Dialog
+          open={this.state.openDeleteRoom}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={this.handleClickClose}
+        >
+          <DialogTitle>{"Delete Host"}</DialogTitle>
+          <DialogContent>
+            <TextField
+              autoFocus
+              margin="dense"
+              label="Room Name"
+              type="text"
+              fullWidth
+              name="roomName"
+              value={this.state.roomName}
+              onChange={this.handleChange}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button
+              onClick={this.handleClickClose}
+              color="secondary"
+              variant="contained"
+            >
+              Cancle
+            </Button>
+            <Button
+              onClick={this.DeleteRoomSubmit}
+              color="primary"
+              variant="contained"
+            >
+              submit
+            </Button>
+          </DialogActions>
+        </Dialog>
       </Fragment>
     );
   }
@@ -266,6 +319,7 @@ const mapActionsToProps = {
   setHostStatus,
   deleteHost,
   addRoom,
+  deleteRoom,
 };
 
 export default connect(null, mapActionsToProps)(FunctionBtn);
