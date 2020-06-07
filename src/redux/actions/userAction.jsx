@@ -87,6 +87,15 @@ export const markNotificationsRead = (notificationsIds) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+export const reportUser = (avatarName, reportData) => (dispatch) => {
+  axios
+    .post(`/user/report/${avatarName}`, reportData)
+    .then(() => {
+      console.log("sucess");
+    })
+    .catch((err) => console.log(err));
+};
+
 const setAuthorizationHeader = (token) => {
   const FBIdToken = `Bearer ${token}`;
   localStorage.setItem("FBIdToken", FBIdToken);
