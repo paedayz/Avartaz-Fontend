@@ -1,13 +1,15 @@
 import {
-  SET_REPORTS,
+  SET_SCREAM_REPORTS,
   SET_HOSTS,
   LOADING_ADMIN_DATA,
   SET_BAN_LIST,
   SET_ADMIN_ERRORS,
+  SET_USER_REPORTS,
 } from "../types";
 
 const initialState = {
-  reports: [],
+  scream_reports: [],
+  user_reports: [],
   ban_list: [],
   host_list: [],
   loading: false,
@@ -21,10 +23,16 @@ export default function (state = initialState, action) {
         ...state,
         loading: true,
       };
-    case SET_REPORTS:
+    case SET_SCREAM_REPORTS:
       return {
         ...state,
-        reports: action.payload,
+        scream_reports: action.payload,
+        loading: false,
+      };
+    case SET_USER_REPORTS:
+      return {
+        ...state,
+        user_reports: action.payload,
         loading: false,
       };
     case SET_HOSTS:

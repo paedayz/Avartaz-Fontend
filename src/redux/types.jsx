@@ -28,7 +28,8 @@ export const RESET_USER_DATA = "RESET_USER_DATA";
 
 // Admin reducer types
 export const LOADING_ADMIN_DATA = "LOADING_ADMIN_DATA";
-export const SET_REPORTS = "SET_REPORTS";
+export const SET_SCREAM_REPORTS = "SET_SCREAM_REPORTS";
+export const SET_USER_REPORTS = "SET_USER_REPORTS";
 export const SET_HOSTS = "SET_HOSTS";
 export const SET_BAN_LIST = "SET_BAN_LIST";
 export const SET_ADMIN_ERRORS = "SET_ADMIN_ERRORS";

@@ -105,7 +105,7 @@ class Scream extends Component {
         <Content>
           <Delete>
             {authenticated && status !== "ban" && (
-              <ReportButton title="Report">
+              <ReportButton title="Report Scream">
                 <Report screamId={screamId} avatarName={avatarName} />
               </ReportButton>
             )}

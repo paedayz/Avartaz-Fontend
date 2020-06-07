@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
-  SET_REPORTS,
+  SET_SCREAM_REPORTS,
+  SET_USER_REPORTS,
   LOADING_ADMIN_DATA,
   SET_HOSTS,
   SET_BAN_LIST,
@@ -8,16 +9,27 @@ import {
   SET_ROOMS,
 } from "../types";
 
-// Get all reports
-export const getAllReports = () => (dispatch) => {
+export const getAllScreamReports = () => (dispatch) => {
   dispatch({ type: LOADING_ADMIN_DATA });
   axios
-    .get("/reports")
+    .get("/reports/scream")
     .then((res) => {
-      dispatch({ type: SET_REPORTS, payload: res.data });
+      dispatch({ type: SET_SCREAM_REPORTS, payload: res.data });
     })
     .catch((err) => {
-      dispatch({ type: SET_REPORTS, payload: [] });
+      dispatch({ type: SET_SCREAM_REPORTS, payload: [] });
+    });
+};
+
+export const getAllUserReports = () => (dispatch) => {
+  dispatch({ type: LOADING_ADMIN_DATA });
+  axios
+    .get("/reports/user")
+    .then((res) => {
+      dispatch({ type: SET_USER_REPORTS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({ type: SET_USER_REPORTS, payload: [] });
     });
 };
 

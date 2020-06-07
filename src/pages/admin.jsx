@@ -5,15 +5,17 @@ import { CURRENT_ROOM } from "../redux/types";
 
 // Redux
 import {
-  getAllReports,
+  getAllScreamReports,
   getAllHosts,
   getAllBanUser,
+  getAllUserReports,
 } from "../redux/actions/adminAction";
 import { connect } from "react-redux";
 import store from "../redux/store";
 
 // Component
-import Report from "../components/admin/Report";
+import ScreamReport from "../components/admin/ScreamReport";
+import UserReport from "../components/admin/UserReport";
 import FunctionButton from "../components/admin/FunctionBtn";
 import Host from "../components/admin/HostsList";
 import BanFunction from "../components/admin/BanFuncBtn";
@@ -34,9 +36,10 @@ export class admin extends Component {
       const name = this.props.match.params.adminName;
       this.setState({ adminName: name });
       store.dispatch({ type: CURRENT_ROOM, payload: "ADMIN" });
-      this.props.getAllReports();
+      this.props.getAllScreamReports();
       this.props.getAllHosts();
       this.props.getAllBanUser();
+      this.props.getAllUserReports();
     } else {
       setTimeout(() => {
         this.props.history.push("/home");
@@ -44,7 +47,13 @@ export class admin extends Component {
     }
   }
   render() {
-    const { reports, loading, host_list, ban_list } = this.props.admin;
+    const {
+      scream_reports,
+      loading,
+      host_list,
+      ban_list,
+      user_reports,
+    } = this.props.admin;
     const { status } = this.props;
 
     let recentHostsMarkup = loading ? (
@@ -63,11 +72,19 @@ export class admin extends Component {
       })
     );
 
-    let recentReportMarkup = loading ? (
+    let recentScreamReportMarkup = loading ? (
       <CircularProgress />
     ) : (
-      reports.map((report) => {
-        return <Report key={report.reportId} report={report} />;
+      scream_reports.map((report) => {
+        return <ScreamReport key={report.reportId} report={report} />;
+      })
+    );
+
+    let recentUserReportMarkup = loading ? (
+      <CircularProgress />
+    ) : (
+      user_reports.map((report) => {
+        return <UserReport key={report.reportId} report={report} />;
       })
     );
 
@@ -99,8 +116,16 @@ export class admin extends Component {
               </BetweenBtn>
             </Grid>
             <Grid item sm={4} xs={12}>
-              <Head>Report</Head>
-              <div>{recentReportMarkup}</div>
+              <Grid container spacing={4} direction="column">
+                <Grid item sm="12" xm="12">
+                  <Head>Scream Reports</Head>
+                  <div>{recentScreamReportMarkup}</div>
+                </Grid>
+                <Grid item sm="12" xm="12">
+                  <Head>User Reports</Head>
+                  <div>{recentUserReportMarkup}</div>
+                </Grid>
+              </Grid>
             </Grid>
             <Grid item sm={4} xs={12}>
               <Head>Hosts & Functions</Head>
@@ -169,9 +194,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionsToProps = {
-  getAllReports,
+  getAllScreamReports,
   getAllHosts,
   getAllBanUser,
+  getAllUserReports,
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(admin);
