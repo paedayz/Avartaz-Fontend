@@ -40,12 +40,22 @@ export class admin extends Component {
       this.props.getAllHosts();
       this.props.getAllBanUser();
       this.props.getAllUserReports();
+      console.log("za");
     } else {
       setTimeout(() => {
         this.props.history.push("/home");
       }, 5000);
     }
   }
+
+  componentWillUpdate() {
+    console.log("wow");
+    if (this.props.status === "admin") {
+      clearTimeout(0);
+    } else {
+    }
+  }
+
   render() {
     const {
       scream_reports,

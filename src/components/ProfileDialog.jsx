@@ -87,7 +87,7 @@ class ProfileDialog extends Component {
             </ImageBox>
 
             <p>
-              <b>Welcome</b> {avatarName}
+              <b>Hi! I'm </b> {avatarName}
             </p>
             <p>
               <b>Joined</b> {dayjs(createdAt).format("MMM YYYY")}
@@ -111,15 +111,20 @@ class ProfileDialog extends Component {
               <div>
                 <b>Host : </b>
                 {status}
+                <br />
               </div>
             )}
-            <Button
-              onClick={this.handleReportOpen}
-              variant="contained"
-              color="secondary"
-            >
-              Report
-            </Button>
+
+            {status !== "ban" && (
+              <Button
+                style={{ marginTop: "1rem" }}
+                onClick={this.handleReportOpen}
+                variant="contained"
+                color="secondary"
+              >
+                Report
+              </Button>
+            )}
           </Box>
         </Dialog>
 

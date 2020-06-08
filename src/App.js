@@ -1,9 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import AuthRoute from "./util/AuthRoute";
 import PrivateRoute from "./util/PrivateRoute";
-import AdminRoute from "./util/AdminRoute";
 import "./App.css";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
@@ -22,6 +21,7 @@ import start from "./pages/start";
 import home from "./pages/home";
 import Room from "./pages/Room";
 import admin from "./pages/admin";
+import loading from "./pages/loading";
 
 let axiosDefaults = require("axios/lib/defaults");
 axiosDefaults.baseURL =
@@ -60,6 +60,7 @@ function App() {
               path="/admin/:adminName/:random"
               component={admin}
             />
+            <Route exact path="/loading" component={loading} />
           </Container>
         </Switch>
       </Router>

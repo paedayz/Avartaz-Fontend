@@ -19,6 +19,10 @@ class start extends Component {
     finish: false,
   };
 
+  componentWillUnmount() {
+    this.setState({ finish: true });
+  }
+
   componentDidMount() {
     this.props.getScreams("Start");
   }
@@ -28,6 +32,11 @@ class start extends Component {
   };
 
   render() {
+    const token = localStorage.FBIdToken;
+
+    if (token) {
+      window.location.href = "/loading";
+    }
     const { screams, loading } = this.props.data;
     let recentScreamsMarkup = !loading ? (
       screams.map((scream) => <Scream key={scream.screamId} scream={scream} />)
@@ -39,7 +48,7 @@ class start extends Component {
 
     return (
       <Fragment>
-        {!this.state.finish && (
+        {!this.state.finish ? (
           <Grid container spacing={5} justify="center">
             <Grid item sm={5} xs={12}>
               {recentScreamsMarkup}
@@ -56,6 +65,8 @@ class start extends Component {
               </Button>
             </Grid>
           </Grid>
+        ) : (
+          <Circularprogress />
         )}
       </Fragment>
     );

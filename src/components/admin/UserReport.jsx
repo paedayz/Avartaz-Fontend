@@ -76,7 +76,7 @@ export class Report extends Component {
             </ImageBox>
 
             <p>
-              <b>Welcome</b> {avatarName}
+              <b>User name : </b> {avatarName}
             </p>
             {bio ? (
               <div>
