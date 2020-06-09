@@ -44,7 +44,15 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Navbar />
+        <Route
+          path="/"
+          render={(props) => {
+            if (props.location.pathname !== "/loading") {
+              return <Navbar />;
+            }
+          }}
+        ></Route>
+
         <Switch>
           <Container>
             <AuthRoute exact path="/" component={start} />

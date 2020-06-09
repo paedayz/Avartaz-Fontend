@@ -1,17 +1,18 @@
 import React, { Component, Fragment } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { Stretch } from "styled-loaders-react";
 
 class home extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.history.push("/home");
-    }, 5000);
+    }, 2000);
   }
 
   render() {
     return (
       <Fragment>
-        <CircularProgress />
+        <Stretch size="40px" rectWidth="1px" />
       </Fragment>
     );
   }
