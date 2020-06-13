@@ -96,6 +96,15 @@ export const reportUser = (avatarName, reportData) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+export const addAdvertise = (formData, advertiseDetail) => (dispatch) => {
+  axios
+    .post("/user/advertise/detail", advertiseDetail)
+    .then((res) => {
+      axios.post(`/user/advertise/image/${res.data.adsId}`, formData);
+    })
+    .catch((err) => console.log(err));
+};
+
 const setAuthorizationHeader = (token) => {
   const FBIdToken = `Bearer ${token}`;
   localStorage.setItem("FBIdToken", FBIdToken);
