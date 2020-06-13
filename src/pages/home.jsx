@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 // Component
 import Room from "../components/Room";
 import Profile from "../components/Profile";
+import ADSButton from "../components/AdvertiseButton";
 
 // MUI stuff
 import Grid from "@material-ui/core/Grid";
@@ -26,15 +27,19 @@ class home extends Component {
     );
 
     return (
-      <Grid container spacing={9} justify="center">
+      <Grid container spacing={5} justify="center">
         <Grid item sm={3} xs={12}>
           <Header>Select your room</Header>
           {recentRoomMarkup}
         </Grid>
 
-        <Grid justify="center" item sm={5} xs={12}>
+        <Grid item sm={3} xs={12}>
           {/* <Typography variant="h4">Welcome</Typography> */}
           <Profile />
+        </Grid>
+
+        <Grid item sm={2} xs={12}>
+          <ADSButton />
         </Grid>
       </Grid>
     );
