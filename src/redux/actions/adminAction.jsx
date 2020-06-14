@@ -128,6 +128,7 @@ export const deleteRoom = (room) => (dispatch) => {
 };
 
 export const getAllAdvertise = () => (dispatch) => {
+  dispatch({ type: LOADING_ADMIN_DATA });
   axios
     .get("/admin/advertise")
     .then((res) => {
@@ -139,6 +140,7 @@ export const getAllAdvertise = () => (dispatch) => {
 };
 
 export const acceptAdvertise = (adsId) => (dispatch) => {
+  dispatch({ type: LOADING_ADMIN_DATA });
   axios
     .get(`/admin/advertise/${adsId}`)
     .then((res) => {
@@ -150,6 +152,7 @@ export const acceptAdvertise = (adsId) => (dispatch) => {
 };
 
 export const deleteAdvertise = (adsId) => (dispatch) => {
+  dispatch({ type: LOADING_ADMIN_DATA });
   axios
     .get(`admin/delete/${adsId}`)
     .then((res) => {

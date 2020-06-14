@@ -55,7 +55,6 @@ class AdvertiseButton extends Component {
     this.setState({ description: "" });
     this.setState({ lineId: "" });
     this.setState({ contact: "" });
-    this.state.formData.delete("image");
   };
   render() {
     return (
