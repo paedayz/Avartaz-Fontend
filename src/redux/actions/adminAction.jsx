@@ -7,6 +7,7 @@ import {
   SET_BAN_LIST,
   SET_ADMIN_ERRORS,
   SET_ROOMS,
+  SET_ADVERTISE,
 } from "../types";
 
 export const getAllScreamReports = () => (dispatch) => {
@@ -123,5 +124,16 @@ export const deleteRoom = (room) => (dispatch) => {
     })
     .catch((err) => {
       console.log(err);
+    });
+};
+
+export const getAllAdvertise = () => (dispatch) => {
+  axios
+    .get("/admin/advertise")
+    .then((res) => {
+      dispatch({ type: SET_ADVERTISE, payload: res.data });
+    })
+    .catch(() => {
+      dispatch({ type: SET_ADVERTISE, payload: [] });
     });
 };

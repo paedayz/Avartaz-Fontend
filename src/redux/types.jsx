@@ -33,3 +33,4 @@ export const SET_USER_REPORTS = "SET_USER_REPORTS";
 export const SET_HOSTS = "SET_HOSTS";
 export const SET_BAN_LIST = "SET_BAN_LIST";
 export const SET_ADMIN_ERRORS = "SET_ADMIN_ERRORS";
+export const SET_ADVERTISE = "SET_ADVERTISE";

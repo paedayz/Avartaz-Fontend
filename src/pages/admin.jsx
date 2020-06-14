@@ -9,6 +9,7 @@ import {
   getAllHosts,
   getAllBanUser,
   getAllUserReports,
+  getAllAdvertise,
 } from "../redux/actions/adminAction";
 import { connect } from "react-redux";
 import store from "../redux/store";
@@ -40,7 +41,7 @@ export class admin extends Component {
       this.props.getAllHosts();
       this.props.getAllBanUser();
       this.props.getAllUserReports();
-      console.log("za");
+      this.props.getAllAdvertise();
     } else {
       setTimeout(() => {
         this.props.history.push("/home");
@@ -208,6 +209,7 @@ const mapActionsToProps = {
   getAllHosts,
   getAllBanUser,
   getAllUserReports,
+  getAllAdvertise,
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(admin);
