@@ -137,3 +137,25 @@ export const getAllAdvertise = () => (dispatch) => {
       dispatch({ type: SET_ADVERTISE, payload: [] });
     });
 };
+
+export const acceptAdvertise = (adsId) => (dispatch) => {
+  axios
+    .get(`/admin/advertise/${adsId}`)
+    .then((res) => {
+      dispatch({ type: SET_ADVERTISE, payload: res.data });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const deleteAdvertise = (adsId) => (dispatch) => {
+  axios
+    .get(`admin/delete/${adsId}`)
+    .then((res) => {
+      dispatch({ type: SET_ADVERTISE, payload: res.data });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
