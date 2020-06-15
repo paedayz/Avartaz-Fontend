@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 class Home extends Component {
+  componentDidMount() {
+    document.getElementById("bottom").scrollIntoView();
+  }
   render() {
     return (
-      <Background>
+      <Background id="bottom">
         <Avartaz>THE AVARTAZ</Avartaz>
         <Link to="/home">
           <Button>Start</Button>
@@ -34,6 +37,7 @@ const fly = keyframes`
 
 const Background = styled.div`
   background-image: url(/img/homeBackground.jpg);
+  position: relative;
   height: 100vh;
   width: 100%;
   background-attachment: fixed;

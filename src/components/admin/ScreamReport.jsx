@@ -29,8 +29,6 @@ export class Report extends Component {
             style={{
               borderRadius: "5%",
               padding: "40px",
-              background: " rgba(255, 255, 255, 0.1)",
-              backgroundColor: "rgba(0, 0, 0, 0.8)",
             }}
             elevation={5}
           >

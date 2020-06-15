@@ -21,7 +21,7 @@ import start from "./pages/start";
 import home from "./pages/home";
 import Room from "./pages/Room";
 import admin from "./pages/admin";
-import loading from "./pages/loading";
+import loading from "./pages/landing";
 
 let axiosDefaults = require("axios/lib/defaults");
 axiosDefaults.baseURL =

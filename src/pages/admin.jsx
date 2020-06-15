@@ -21,6 +21,7 @@ import FunctionButton from "../components/admin/FunctionBtn";
 import Host from "../components/admin/HostsList";
 import BanFunction from "../components/admin/BanFuncBtn";
 import Ban from "../components/admin/BanList";
+import Advertise from "../components/admin/Advertise";
 
 // MUI stuff
 import Grid from "@material-ui/core/Grid";
@@ -64,6 +65,7 @@ export class admin extends Component {
       host_list,
       ban_list,
       user_reports,
+      advertise_list,
     } = this.props.admin;
     const { status } = this.props;
 
@@ -96,6 +98,14 @@ export class admin extends Component {
     ) : (
       user_reports.map((report) => {
         return <UserReport key={report.reportId} report={report} />;
+      })
+    );
+
+    let recentAdvertiseMarkup = loading ? (
+      <CircularProgress />
+    ) : (
+      advertise_list.map((advertise) => {
+        return <Advertise key={advertise.advertiseId} advertise={advertise} />;
       })
     );
 
@@ -135,6 +145,10 @@ export class admin extends Component {
                 <Grid item sm="12" xm="12">
                   <Head>User Reports</Head>
                   <div>{recentUserReportMarkup}</div>
+                </Grid>
+                <Grid item sm="12" xm="12">
+                  <Head>Advertise</Head>
+                  <div>{recentAdvertiseMarkup}</div>
                 </Grid>
               </Grid>
             </Grid>

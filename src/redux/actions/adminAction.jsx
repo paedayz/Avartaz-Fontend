@@ -154,7 +154,7 @@ export const acceptAdvertise = (adsId) => (dispatch) => {
 export const deleteAdvertise = (adsId) => (dispatch) => {
   dispatch({ type: LOADING_ADMIN_DATA });
   axios
-    .get(`admin/delete/${adsId}`)
+    .get(`admin/delete/advertise/${adsId}`)
     .then((res) => {
       dispatch({ type: SET_ADVERTISE, payload: res.data });
     })
