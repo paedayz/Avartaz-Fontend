@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
+import { getRoomData } from "../redux/actions/dataAction";
+import { connect } from "react-redux";
 
 class Home extends Component {
   componentDidMount() {
     document.getElementById("bottom").scrollIntoView();
+    this.props.getRoomData();
   }
   render() {
     return (
@@ -88,4 +91,4 @@ const Bird = styled.div`
   animation: ${fly} infinite 20s linear;
 `;
 
-export default Home;
+export default connect(null, { getRoomData })(Home);

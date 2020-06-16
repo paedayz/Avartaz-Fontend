@@ -6,6 +6,7 @@ import {
   SET_ADMIN_ERRORS,
   SET_USER_REPORTS,
   SET_ADVERTISE,
+  SET_ACCEPT_ADVERTISE,
 } from "../types";
 
 const initialState = {
@@ -13,8 +14,9 @@ const initialState = {
   user_reports: [],
   ban_list: [],
   host_list: [],
-  loading: false,
+  accept_advertise: [],
   advertise_list: [],
+  loading: false,
   errors: [],
 };
 
@@ -58,6 +60,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         advertise_list: action.payload,
+        loading: false,
+      };
+    case SET_ACCEPT_ADVERTISE:
+      return {
+        ...state,
+        accept_advertise: action.payload,
         loading: false,
       };
     default:
