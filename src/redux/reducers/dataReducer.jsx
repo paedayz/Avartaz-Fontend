@@ -12,6 +12,7 @@ import {
   SUBMIT_REPORT,
   SET_USER_DATA,
   RESET_USER_DATA,
+  SET_ACCEPT_ADVERTISE,
 } from "../types";
 
 const initialState = {
@@ -22,6 +23,7 @@ const initialState = {
   room: [],
   reports: [],
   userData: [],
+  accept_advertise: [],
   loadingUserData: false,
 };
 
@@ -104,6 +106,13 @@ export default function (state = initialState, action) {
         ...state,
         userData: [],
         loadingUserData: true,
+      };
+
+    case SET_ACCEPT_ADVERTISE:
+      return {
+        ...state,
+        accept_advertise: action.payload,
+        loading: false,
       };
     default:
       return {

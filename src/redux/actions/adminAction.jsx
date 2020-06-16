@@ -8,7 +8,6 @@ import {
   SET_ADMIN_ERRORS,
   SET_ROOMS,
   SET_ADVERTISE,
-  SET_ACCEPT_ADVERTISE,
 } from "../types";
 
 export const getAllScreamReports = () => (dispatch) => {
@@ -161,17 +160,5 @@ export const deleteAdvertise = (adsId) => (dispatch) => {
     })
     .catch((err) => {
       console.log(err);
-    });
-};
-
-export const getAcceptAdvertise = () => (dispatch) => {
-  dispatch({ type: LOADING_ADMIN_DATA });
-  axios
-    .get("/admin/accept")
-    .then((res) => {
-      dispatch({ type: SET_ACCEPT_ADVERTISE, payload: res.data });
-    })
-    .catch(() => {
-      dispatch({ type: SET_ACCEPT_ADVERTISE, payload: [] });
     });
 };

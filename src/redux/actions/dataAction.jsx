@@ -17,6 +17,7 @@ import {
   SUBMIT_REPORT,
   SET_USER_DATA,
   RESET_USER_DATA,
+  SET_ACCEPT_ADVERTISE,
 } from "../types";
 
 // Get all screams
@@ -178,5 +179,17 @@ export const getUserData = (avatarName) => (dispatch) => {
     })
     .catch((err) => {
       dispatch({ type: SET_USER_DATA, payload: [] });
+    });
+};
+
+export const getAcceptAdvertise = () => (dispatch) => {
+  dispatch({ type: LOADING_DATA });
+  axios
+    .get("/admin/accept")
+    .then((res) => {
+      dispatch({ type: SET_ACCEPT_ADVERTISE, payload: res.data });
+    })
+    .catch(() => {
+      dispatch({ type: SET_ACCEPT_ADVERTISE, payload: [] });
     });
 };

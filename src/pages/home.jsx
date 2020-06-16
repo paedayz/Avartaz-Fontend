@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { getRoomData } from "../redux/actions/dataAction";
+import { getRoomData, getAcceptAdvertise } from "../redux/actions/dataAction";
 import PropTypes from "prop-types";
+import { Zoom } from "react-slideshow-image";
 
 // Component
 import Room from "../components/Room";
@@ -16,10 +17,21 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 class home extends Component {
   componentDidMount() {
     this.props.getRoomData();
+    this.props.getAcceptAdvertise();
   }
 
   render() {
-    const { room, loading } = this.props.data;
+    const { room, loading, accept_advertise } = this.props.data;
+
+    const zoomOutProperties = {
+      duration: 5000,
+      transitionDuration: 500,
+      infinite: true,
+      indicators: true,
+      scale: 0.4,
+      arrows: true,
+    };
+
     let recentRoomMarkup = !loading ? (
       room.map((room) => <Room key={room.roomId} room={room} />)
     ) : (
@@ -39,6 +51,15 @@ class home extends Component {
         </Grid>
 
         <Grid item sm={2} xs={12}>
+          <Zoom {...zoomOutProperties}>
+            {accept_advertise.map((each, index) => (
+              <img
+                key={index}
+                style={{ width: "100%" }}
+                src={each.advertiseImage}
+              />
+            ))}
+          </Zoom>
           <ADSButton />
         </Grid>
       </Grid>
@@ -61,4 +82,6 @@ const mapStateToProps = (state) => ({
   data: state.data,
 });
 
-export default connect(mapStateToProps, { getRoomData })(home);
+export default connect(mapStateToProps, { getRoomData, getAcceptAdvertise })(
+  home
+);
