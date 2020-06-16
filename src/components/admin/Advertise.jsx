@@ -41,18 +41,18 @@ export class Advertise extends Component {
       advertiseImage,
     } = this.props.advertise;
 
-    console.log(accept);
+    const showAds = () => {
+      window.open(advertiseImage);
+    };
     return (
       <Fragment>
         <CardBox>
-          <Card
-            style={{
-              borderRadius: "5%",
-              padding: "40px",
-            }}
-            elevation={5}
-          >
-            <Image src={advertiseImage} />
+          <Card elevation={5}>
+            <Image
+              src={advertiseImage}
+              style={{ cursor: "pointer" }}
+              onClick={() => showAds()}
+            />
             <Content>
               <Detail>
                 From : {avatarName} ------ {dayjs(createdAt).fromNow()}

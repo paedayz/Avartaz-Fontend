@@ -114,7 +114,28 @@ export class admin extends Component {
         <Fragment>
           <Grid container direction="row" justify="center" alignItems="stretch">
             <Grid item sm={4} xs={12}>
-              <Head>Ban List</Head>
+              <Head>Hosts & Functions</Head>
+              <FunctionButton />
+              <BetweenBtn>
+                <Paper
+                  elevation={8}
+                  style={{
+                    width: "70%",
+                    position: "relative",
+                    left: "15%",
+                    marginBottom: "10%",
+                  }}
+                >
+                  <br />
+                  <Title>Host List</Title>
+                  <br />
+                  {recentHostsMarkup}
+                  <br />
+                  <br />
+                </Paper>
+              </BetweenBtn>
+
+              <Head>Ban User</Head>
               <BanFunction />
               <BetweenBtn>
                 <Paper
@@ -137,42 +158,17 @@ export class admin extends Component {
               </BetweenBtn>
             </Grid>
             <Grid item sm={4} xs={12}>
-              <Grid container spacing={4} direction="column">
-                <Grid item sm="12" xm="12">
-                  <Head>Scream Reports</Head>
-                  <div>{recentScreamReportMarkup}</div>
-                </Grid>
-                <Grid item sm="12" xm="12">
-                  <Head>User Reports</Head>
-                  <div>{recentUserReportMarkup}</div>
-                </Grid>
-                <Grid item sm="12" xm="12">
-                  <Head>Advertise</Head>
-                  <div>{recentAdvertiseMarkup}</div>
-                </Grid>
-              </Grid>
+              <Head>Scream Reports</Head>
+              <div>{recentScreamReportMarkup}</div>
+              <br />
+              <br />
+              <Head>User Reports</Head>
+              <div>{recentUserReportMarkup}</div>
             </Grid>
-            <Grid item sm={4} xs={12}>
-              <Head>Hosts & Functions</Head>
-              <FunctionButton />
-              <BetweenBtn>
-                <Paper
-                  elevation={8}
-                  style={{
-                    width: "70%",
-                    position: "relative",
-                    left: "15%",
-                    marginBottom: "10%",
-                  }}
-                >
-                  <br />
-                  <Title>Host List</Title>
-                  <br />
-                  {recentHostsMarkup}
-                  <br />
-                  <br />
-                </Paper>
-              </BetweenBtn>
+            <Grid item sm={1} xs={12} />
+            <Grid item sm={3} xs={12}>
+              <Head>Advertise</Head>
+              <div>{recentAdvertiseMarkup}</div>
             </Grid>
           </Grid>
         </Fragment>
@@ -202,7 +198,6 @@ const Title = styled.span`
 `;
 
 const Head = styled.div`
-  margin-bottom: 40px;
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 `;

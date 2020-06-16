@@ -29,6 +29,7 @@ export class Report extends Component {
             style={{
               borderRadius: "5%",
               padding: "40px",
+              backgroundColor: "rgba(0,0,0,0.5)",
             }}
             elevation={5}
           >
@@ -65,7 +66,7 @@ const ReportBody = styled.div`
 const Detail = styled.div`
   margin-bottom: 5px;
   font-size: 14px;
-  color: gray;
+  color: white;
 `;
 
 const Content = styled.span`

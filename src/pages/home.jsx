@@ -22,6 +22,7 @@ class home extends Component {
 
   render() {
     const { room, loading, accept_advertise } = this.props.data;
+    const { status } = this.props;
 
     const zoomOutProperties = {
       duration: 5000,
@@ -60,7 +61,7 @@ class home extends Component {
               />
             ))}
           </Zoom>
-          <ADSButton />
+          {status !== "ban" && <ADSButton />}
         </Grid>
       </Grid>
     );
@@ -80,6 +81,7 @@ home.propTypes = {
 
 const mapStateToProps = (state) => ({
   data: state.data,
+  status: state.user.status,
 });
 
 export default connect(mapStateToProps, { getRoomData, getAcceptAdvertise })(

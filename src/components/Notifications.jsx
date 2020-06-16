@@ -64,14 +64,16 @@ class Notifications extends Component {
               color="secondary"
               style={{ marginTop: "9px" }}
             >
-              <NotificationsIcon />
+              <NotificationsIcon style={{ color: "white" }} />
             </Badge>
           ))
         : (notificationsIcon = (
-            <NotificationsIcon style={{ marginTop: "9px" }} />
+            <NotificationsIcon style={{ color: "white", marginTop: "9px" }} />
           ));
     } else {
-      notificationsIcon = <NotificationsIcon style={{ marginTop: "9px" }} />;
+      notificationsIcon = (
+        <NotificationsIcon style={{ color: "white", marginTop: "9px" }} />
+      );
     }
 
     let notificationsMarkup =

@@ -123,7 +123,7 @@ class Profile extends Component {
               component={Link}
               to={`/admin/${avatarName}/${this.state.random}`}
               variant="contained"
-              color="secondary"
+              color="inherit"
             >
               Admin
             </Button>

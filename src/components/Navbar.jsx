@@ -33,7 +33,7 @@ class Navbar extends Component {
     } = this.props;
     return (
       <div>
-        <AppBar>
+        <AppBar style={{ backgroundColor: "rgba(0,0,0,1)" }}>
           {authenticated ? (
             <Fragment>
               <BlankTwo></BlankTwo>
@@ -71,6 +71,7 @@ class Navbar extends Component {
                   </Button>
                 </Grid>
               </Grid>
+              <br />
             </Fragment>
           ) : (
             <Fragment>
