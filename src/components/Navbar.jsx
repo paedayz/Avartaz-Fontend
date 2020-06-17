@@ -6,6 +6,7 @@ import store from "../redux/store";
 import { logoutUser } from "../redux/actions/userAction";
 import PostScream from "./PostScream";
 import Notifications from "./Notifications";
+import { getRoomData } from "../redux/actions/dataAction";
 
 // Redux
 import { connect } from "react-redux";
@@ -29,8 +30,9 @@ class Navbar extends Component {
   render() {
     const {
       authenticated,
-      data: { current_room },
+      data: { current_room, room },
     } = this.props;
+
     return (
       <div>
         <AppBar style={{ backgroundColor: "rgba(0,0,0,1)" }}>
@@ -98,6 +100,7 @@ const BlankTwo = styled.div`
 
 const mapActionToProps = {
   logoutUser,
+  getRoomData,
 };
 
 const mapStateToProps = (state) => ({

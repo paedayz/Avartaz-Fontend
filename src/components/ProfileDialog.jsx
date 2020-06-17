@@ -81,8 +81,12 @@ class ProfileDialog extends Component {
             <ImageBox>
               {status === "ban" ? (
                 <BanImage src={avatarImage} />
+              ) : status === "admin" ? (
+                <AdminImage src={avatarImage} />
+              ) : status !== "user" ? (
+                <HostImage src={avatarImage} />
               ) : (
-                <Image src={avatarImage}></Image>
+                <Image src={avatarImage} />
               )}
             </ImageBox>
 
@@ -169,6 +173,26 @@ class ProfileDialog extends Component {
     );
   }
 }
+
+const HostImage = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: solid blue 10px;
+  border-style: double;
+  position: relative;
+  left: -7%;
+`;
+
+const AdminImage = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: solid black 10px;
+  border-style: double;
+  position: relative;
+  left: -7%;
+`;
 
 const ImageBox = styled.div`
   margin-left: 50px;

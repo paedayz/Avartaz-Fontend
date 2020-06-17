@@ -42,7 +42,7 @@ class home extends Component {
     return (
       <Grid container spacing={5} justify="center">
         <Grid item sm={3} xs={12}>
-          <Header>Select your room</Header>
+          <Header>SELECT ROOM</Header>
           {recentRoomMarkup}
         </Grid>
 
@@ -52,15 +52,18 @@ class home extends Component {
         </Grid>
 
         <Grid item sm={2} xs={12}>
-          <Zoom {...zoomOutProperties}>
-            {accept_advertise.map((each, index) => (
-              <img
-                key={index}
-                style={{ width: "100%" }}
-                src={each.advertiseImage}
-              />
-            ))}
-          </Zoom>
+          {accept_advertise && (
+            <Zoom {...zoomOutProperties}>
+              {accept_advertise.map((each, index) => (
+                <img
+                  key={index}
+                  style={{ width: "100%" }}
+                  src={each.advertiseImage}
+                />
+              ))}
+            </Zoom>
+          )}
+
           {status !== "ban" && <ADSButton />}
         </Grid>
       </Grid>
