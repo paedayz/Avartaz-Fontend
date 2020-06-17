@@ -40,8 +40,8 @@ class Navbar extends Component {
               <Grid container>
                 <Grid item sm={3} xs={12}></Grid>
                 <Grid item sm={6} xs={12}>
-                  <Typography variant="h4" component={Link} to={"/"}>
-                    THE AVARTAZ <br />{" "}
+                  <Typography variant="h3" component={Link} to={"/"}>
+                    THE AVARTAZ
                   </Typography>
                   <Room>
                     {current_room === "Home" ? " " : `${current_room} Room`}
@@ -71,7 +71,6 @@ class Navbar extends Component {
                   </Button>
                 </Grid>
               </Grid>
-              <br />
             </Fragment>
           ) : (
             <Fragment>

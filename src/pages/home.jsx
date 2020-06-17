@@ -70,7 +70,7 @@ class home extends Component {
 
 const Header = styled.h1`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: darkblue;
+  color: black;
   font-size: 40px;
 `;
 

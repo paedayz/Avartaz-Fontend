@@ -20,7 +20,7 @@ class Room extends Component {
             variant="h6"
             component={Link}
             to={`/room/${roomName}`}
-            color="primary"
+            style={{ color: "black" }}
           >
             {roomName}
           </Typography>

@@ -66,8 +66,12 @@ class Profile extends Component {
           <ImageBox>
             {status === "ban" ? (
               <BanImage src={avatarImage} />
+            ) : status === "admin" ? (
+              <AdminImage src={avatarImage} />
+            ) : status !== "user" ? (
+              <HostImage src={avatarImage} />
             ) : (
-              <Image src={avatarImage}></Image>
+              <Image src={avatarImage} />
             )}
 
             <input
@@ -155,6 +159,22 @@ const Box = styled(Paper)`
   width: 450px;
   height: 600px;
   font-family: Arial, Helvetica, sans-serif;
+`;
+
+const HostImage = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: solid blue 10px;
+  border-style: double;
+`;
+
+const AdminImage = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: solid black 10px;
+  border-style: double;
 `;
 
 const BanImage = styled.img`
