@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
 
 // MUI Stuff
 import Grid from "@material-ui/core/Grid";

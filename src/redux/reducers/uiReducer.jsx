@@ -19,7 +19,6 @@ export default function (state = initialState, action) {
         errors: action.payload,
       };
     case CLEAR_ERRORS:
-      console.log("wow");
       return {
         ...state,
         loading: false,

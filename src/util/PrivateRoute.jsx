@@ -13,9 +13,7 @@ const AuthRoute = ({
     <Route
       {...rest}
       render={(props) =>
-        authenticated === true
-          ? (console.log("From: PrivateRoute1"), (<Component {...props} />))
-          : (console.log("From: PrivateRoute2"), (<Redirect to="/" />))
+        authenticated === true ? <Component {...props} /> : <Redirect to="/" />
       }
     />
   );

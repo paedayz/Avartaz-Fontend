@@ -5,7 +5,7 @@ import { withRouter, Link } from "react-router-dom";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { uploadImage } from "../redux/actions/userAction";
 
 // Component
@@ -14,7 +14,6 @@ import EditDetails from "../components/EditDetails";
 // MUI stuff
 import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
-import Tooltip from "@material-ui/core/Tooltip";
 import Paper from "@material-ui/core/Paper";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";

@@ -30,7 +30,7 @@ class Navbar extends Component {
   render() {
     const {
       authenticated,
-      data: { current_room, room },
+      data: { current_room },
     } = this.props;
 
     return (

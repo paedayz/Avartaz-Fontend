@@ -34,7 +34,6 @@ export default function (state = initialState, action) {
         status: action.payload.credentials.status,
       };
     case LOADING_USER:
-      console.log(state);
       return {
         ...state,
         loading: true,

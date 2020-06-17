@@ -51,7 +51,6 @@ export class admin extends Component {
   }
 
   componentWillUpdate() {
-    console.log("wow");
     if (this.props.status === "admin") {
       clearTimeout(0);
     } else {

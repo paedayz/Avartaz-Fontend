@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { submitReport } from "../redux/actions/dataAction";
-import styled from "styled-components";
 
 // Redux stuff
 import { connect } from "react-redux";
