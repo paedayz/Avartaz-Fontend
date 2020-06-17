@@ -73,6 +73,7 @@ class Navbar extends Component {
                   </Button>
                 </Grid>
               </Grid>
+              {current_room === "Home" && <br />}
             </Fragment>
           ) : (
             <Fragment>
@@ -89,6 +90,7 @@ class Navbar extends Component {
 
 const Room = styled.div`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-bottom: 5px;
 `;
 
 const Blank = styled.div`

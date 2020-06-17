@@ -52,7 +52,7 @@ class home extends Component {
         </Grid>
 
         <Grid item sm={2} xs={12}>
-          {accept_advertise && (
+          {accept_advertise !== undefined && accept_advertise !== null && (
             <Zoom {...zoomOutProperties}>
               {accept_advertise.map((each, index) => (
                 <img
