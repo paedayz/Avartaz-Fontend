@@ -45,5 +45,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://asia-northeast1-the-avartaz.cloudfunctions.net/api"
+  "proxy": "https://asia-east2-the-avartaz.cloudfunctions.net/api"
 }

@@ -76,13 +76,19 @@ export class admin extends Component {
       })
     );
 
-    let recentBanListMarkup = loading ? (
-      <CircularProgress />
-    ) : (
-      ban_list.map((ban) => {
-        return <Ban key={ban.createdAt} ban={ban} />;
-      })
-    );
+    let recentBanListMarkup;
+
+    if (ban_list) {
+      recentBanListMarkup = loading ? (
+        <CircularProgress />
+      ) : (
+        ban_list.map((ban) => {
+          return <Ban key={ban.createdAt} ban={ban} />;
+        })
+      );
+    } else {
+      recentBanListMarkup = "not have baned user";
+    }
 
     let recentScreamReportMarkup = loading ? (
       <CircularProgress />

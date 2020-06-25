@@ -24,8 +24,7 @@ import admin from "./pages/admin";
 import loading from "./pages/landing";
 
 let axiosDefaults = require("axios/lib/defaults");
-axiosDefaults.baseURL =
-  "https://asia-northeast1-the-avartaz.cloudfunctions.net/api";
+axiosDefaults.baseURL = "https://asia-east2-the-avartaz.cloudfunctions.net/api";
 
 const token = localStorage.FBIdToken;
 
